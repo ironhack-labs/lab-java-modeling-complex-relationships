@@ -1,10 +1,18 @@
 ![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
 
+<<<<<<< HEAD
+# LAB Java | Intermediate JPA
+
+## Introduction
+
+We have just learned how to use JPQL and native SQL statements with Spring JPA to query a database as well as how to model object inheritance and  component objects with JPA so let's practice a bit more.
+=======
 # LAB Java | Modeling Complex Relationships
 
 ## Introduction
 
 We have just learned how to use Relationship Mapping to model 1 to 1 relationship and 1 to many relationships so let's practice a bit more.
+>>>>>>> fa8592fc3e7370737bcf7788968eaa9cb8aec094
 
 <br>
 
@@ -23,6 +31,21 @@ Once you finish the assignment, submit a URL link to your repository or your pul
 
 ## Instructions
 
+<<<<<<< HEAD
+1. Model the relationships of a Task Management software using Spring JPA. Assume that you have the following requirements for data storage:
+
+  - Tasks have a `title`, `dueDate` and a boolean `status`.
+  - There are 2 types of tasks: `BillableTask` and `InternalTask`.
+  - `BillableTask` have an additional `hourlyRate` attribute.
+
+2. Model the relationships of a PR company using Spring JPA. Assume that you have the following requirements for data storage:
+
+  - The database consists of `Contacts`. Each Contact has a `name`, `title` and `company`.
+  - Names are their own object and have a `firstName`, `lastName`, `middleName` and `salutation`.
+  - Names should be embedded within the `Contact` entity and not be stored in a separate table.
+
+3. List 3 tasks that can be accomplished with native SQL that you cannot do with JPQL. Explain why you would choose to use native SQL over JPQL for these specific tasks.
+=======
 1. Using the Spring JPA model, create the relationships for an application for an Association of Nurses. The Association has 7 Chapters and each Chapter has the following properties:
 
    - `name`: the name of the chapter
@@ -55,6 +78,7 @@ In addition to the typical event properties, Conferences also have a list of Spe
 - Each Speaker has the following properties:
   - `name`: the speaker's name
   - `presentationDuration`: the duration of the presentation.
+>>>>>>> fa8592fc3e7370737bcf7788968eaa9cb8aec094
 
 <br>
 
@@ -73,7 +97,15 @@ In addition to the typical event properties, Conferences also have a list of Spe
 
   Once you have a clear understanding of the problem, you should be able to start working toward the solution.
 
+<<<<<<< HEAD
+  <br>
+
+  
+
+</details>
+=======
  </details>
+>>>>>>> fa8592fc3e7370737bcf7788968eaa9cb8aec094
 
 <br>
 
@@ -92,7 +124,15 @@ In addition to the typical event properties, Conferences also have a list of Spe
 
   Alternatively, you can use an Integrated Development Environment (IDE) such as Eclipse or IntelliJ IDEA. These IDEs have plugins for creating Spring boot projects, making it easy to set up the environment and get started with coding.
 
+<<<<<<< HEAD
+  <br>
+
+  
+
+</details>
+=======
  </details>
+>>>>>>> fa8592fc3e7370737bcf7788968eaa9cb8aec094
 
 <br>
 
@@ -122,6 +162,13 @@ In addition to the typical event properties, Conferences also have a list of Spe
   }
   ```
 
+<<<<<<< HEAD
+  <br>
+
+    
+
+=======
+>>>>>>> fa8592fc3e7370737bcf7788968eaa9cb8aec094
 </details>
 
 <br>
@@ -163,6 +210,13 @@ In addition to the typical event properties, Conferences also have a list of Spe
 
   In this example, the `Employee` class is marked as a persistent entity using the `@Entity` annotation. The name of the database table is defined using the `@Table` annotation as "employee". The `id`, `firstName` and `lastName` attributes are mapped to columns in the "employee" table using the `@Column` annotation.
 
+<<<<<<< HEAD
+  <br>
+
+    
+
+=======
+>>>>>>> fa8592fc3e7370737bcf7788968eaa9cb8aec094
 </details>
 
 <br>
@@ -208,6 +262,11 @@ In addition to the typical event properties, Conferences also have a list of Spe
 
   The choice of inheritance strategy depends on the requirements of the application, such as the need for normalization, the number of columns in the table and the number of joins required to retrieve data. For example, if the entities have many columns and normalization is important, then JOINED strategy is appropriate. If there are fewer columns, the TABLE_PER_CLASS strategy may be more suitable. The SINGLE_TABLE strategy is the simplest and most compact but may result in a less flexible data model.
 
+<<<<<<< HEAD
+  <br>
+
+    
+=======
 </details>
 
 <br>
@@ -252,12 +311,55 @@ In addition to the typical event properties, Conferences also have a list of Spe
   ```
 
   With the above steps, you can now use `JpaRepository` to interact with the database in your Java project.
+>>>>>>> fa8592fc3e7370737bcf7788968eaa9cb8aec094
 
 </details>
 
 <br>
 
 <details>
+<<<<<<< HEAD
+  <summary style="font-size: 16px; cursor: pointer; outline: none; font-weight: bold;">How do I use "@Embedded" and "@Embeddable" annotations in Java with JPA?</summary>
+
+  <br> <!-- ✅ -->
+
+  The `@Embedded` and `@Embeddable` annotations in JPA are used to map an embedded field or class in a JPA entity.
+
+  These annotations are used to store a set of related fields within another JPA entity. This allows the developer to store complex data within a single entity, as opposed to having multiple entities for different data fields.
+
+  The `@Embeddable` annotation is used to annotate the embedded class, while the `@Embedded` annotation is used to annotate the field within the JPA entity that will store the embedded class.
+
+  Example:
+
+  ```java
+  @Embeddable
+  public class Address {
+    private String street;
+    private String city;
+    private String state;
+    private String zipCode;
+    // getters and setters
+  }
+
+  @Entity
+  public class Employee {
+    @Id
+    private long id;
+    private String name;
+    @Embedded
+    private Address address;
+    // getters and setters
+  }
+  ```
+
+  JPA will store the data in the embedded class as part of the owning entity in the database. When retrieving the entity from the database, the embedded class data will also be retrieved and stored as part of the entity.
+
+  In conclusion, the `@Embedded` and `@Embeddable` annotations in JPA allow developers to store complex data within a single JPA entity, providing a more organized and efficient way to store and retrieve data from the database.
+
+  <br>
+
+    
+=======
   <summary style="font-size: 16px; cursor: pointer; outline: none; font-weight: bold;">How can I use the JPA annotations "@OneToOne", "@OneToMany", "@ManyToOne", "@ManyToMany", "@JoinColumn" and "@JoinTable" in Java?</summary>
 
   <br> <!-- ✅ -->
@@ -363,6 +465,7 @@ In addition to the typical event properties, Conferences also have a list of Spe
 
    }
    ```
+>>>>>>> fa8592fc3e7370737bcf7788968eaa9cb8aec094
 
 </details>
 
