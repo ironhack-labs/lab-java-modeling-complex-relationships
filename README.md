@@ -248,7 +248,6 @@ In addition to the typical event properties, Conferences also have a list of Spe
 
   ```java
   MyEntity myEntity = new MyEntity();
-  myRepository.save(myEntity);
   ```
 
   With the above steps, you can now use `JpaRepository` to interact with the database in your Java project.
